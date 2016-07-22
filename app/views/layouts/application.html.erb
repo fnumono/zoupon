@@ -11,7 +11,11 @@
 <%= form_tag(welcome_index_path, :method => "get", class: "navbar-form", id: "search-form") do %>
     
 <ul class="nav nav-pills">
+	
 	<li><%= link_to 'Home', welcome_index_path %></li>
+	<%if current_user.blank? -%>
+	  <li><%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) %></li>
+	<%end%>
 	<li><%= render 'devise/menu/registration_items' %></li>
 	<li><%= render 'devise/menu/login_items' %></li>
 	<li><%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Category" %><%= submit_tag "Search", :name => nil %></li>
