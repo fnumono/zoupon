@@ -1,9 +1,33 @@
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		Zoupon -Filling your life with great deal-
+	</title>	
+</head>
+
+	<body>
+		<div id="header" class="container-fluid">
+			<h1 align="middle"> Zoupon </h1>
+		</div>
+
+		<div id="main-container" class="container-fluid">
+			<div id="sidebar" class="col-xs-3">
+
+			<table class="table table-bordered">
+				<tr> <td>Things To Do  </td> </tr>
+				<tr> <td>Beauty and Spas </td></tr>
+				<tr> <td>Food and Drink </td></tr>
+				<tr> <td>Electronics </td></tr>
+				<tr> <td>Travel </td></tr>
+			</table>
+
+			</div>
+			<div id="main-content" class="col-xs-9">
+			<p> main content goes here </p>
+			</div>
+		</div>
+	</body>
+
+</html>
