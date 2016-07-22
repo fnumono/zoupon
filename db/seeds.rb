@@ -9,6 +9,9 @@
 
 #creating the user list
 
+Product.delete_all
+User.delete_all
+
 email_list = [
 	["email1@site.com", 12345678],
 	["email2@site.com", 12345678],
