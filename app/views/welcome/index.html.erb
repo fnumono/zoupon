@@ -16,18 +16,45 @@
 			<div id="sidebar" class="col-xs-3">
 
 			<table class="table table-bordered">
-				<tr> <td>Things To Do  </td> </tr>
-				<tr> <td>Beauty and Spas </td></tr>
-				<tr> <td>Food and Drink </td></tr>
-				<tr> <td>Electronics </td></tr>
-				<tr> <td>Travel </td></tr>
+				<tr> <td><%= link_to 'Things to do', :controller => "welcome", :search => "things to do" %></td> </tr>
+				<tr> <td><%= link_to 'Beauty and Spas', :controller => "welcome", :search => "food" %></td></tr>
+				<tr> <td><%= link_to 'Food and Drinks', :controller => "welcome", :search => "food" %></td></tr>
+				<tr> <td><%= link_to 'Electronics', :controller => "welcome", :search => "electronics" %></td></tr>
+				<tr> <td><%= link_to 'Travel', :controller => "welcome", :search => "travel" %></td></tr>
 			</table>
 
 			</div>
 			<div id="main-content" class="col-xs-9">
-			<p> main content goes here </p>
+
+				<p id="notice"><%= notice %></p>
+				<table class="table table-bordered">
+					<tr> 
+						<th> Image </th>
+						<th> Title </th> 
+						<th> Price </th>
+						<th> Sale </th>
+					</tr>
+
+					<%if @products.blank? %>
+						<p> Product cant be found </p>
+					<%end%>
+
+					<% @products.each do |product| %>
+					<tr>
+						<td><%= image_tag(product.image_url, width:"32", height:"16", alt: "Edit Entry") %> </td>
+						<td><%= product.title.humanize %> </td>
+						<td><%= number_to_currency product.price %> </td>
+						<td><%= number_to_currency product.sale %> </td>
+					</tr>
+					<% end %>
+
+				</table>
+
+
+
 			</div>
 		</div>
 	</body>
 
 </html>
+

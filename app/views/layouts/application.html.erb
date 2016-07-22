@@ -8,10 +8,17 @@
 </head>
 <body>
 
-<ul class="list-inline">
-<%= render 'devise/menu/registration_items' %>
-<%= render 'devise/menu/login_items' %>
+<%= form_tag(welcome_index_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+    
+<ul class="nav nav-pills">
+	<li><%= link_to 'Home', welcome_index_path %></li>
+	<li><%= render 'devise/menu/registration_items' %></li>
+	<li><%= render 'devise/menu/login_items' %></li>
+	<li><%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Category" %><%= submit_tag "Search", :name => nil %></li>
+	
 </ul>
+
+<%end%>
 
 <%= yield %>
 
