@@ -33,6 +33,7 @@
 						<th> Title </th> 
 						<th> Price </th>
 						<th> Sale </th>
+						<th>  </th>
 					</tr>
 
 					<%if @products.blank? %>
@@ -45,6 +46,7 @@
 						<td><%= product.title.humanize %> </td>
 						<td><%= number_to_currency product.price %> </td>
 						<td><%= number_to_currency product.sale %> </td>
+						<td><%= button_to 'Add to Cart', line_items_path(product_id: product) %></td>
 					</tr>
 					<% end %>
 
