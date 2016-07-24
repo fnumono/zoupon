@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :carts
   devise_for :admins
   get 'welcome/index'
+  resources :charges
 
   resources :products
   resources :products

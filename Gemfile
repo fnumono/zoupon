@@ -30,6 +30,7 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook' 
 
 gem 'jquery-ui-rails'
+gem 'stripe'
 
 
 # Use ActiveModel has_secure_password
