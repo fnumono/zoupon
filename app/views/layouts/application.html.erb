@@ -18,9 +18,13 @@
 	<%end%>
 	<li><%= render 'devise/menu/registration_items' %></li>
 	<li><%= render 'devise/menu/login_items' %></li>
+	<!-- <li span class="glyphicon glyphicon-shopping-cart"></li> -->
 	<li><%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Category" %><%= submit_tag "Search", :name => nil %></li>
+
 	
 </ul>
+
+
 
 <%end%>
 
