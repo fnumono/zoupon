@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<style>
+		#navbar
+		{
+			clear:both;
+			margin: 0px;
+			padding: 0px;
+			height: 100%;
+			background-color: #32CD32
+
+		}
+
+		.nav-pills a {
+    	background-color: #32CD32;
+    }
+	</style>
+
   <title>Zoupon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+
 <body>
 
 <%= form_tag(welcome_index_path, :method => "get", class: "navbar-form", id: "search-form") do %>
     
-<ul class="nav nav-pills">
+<div id="navbar">
 	
-	<li><%= link_to 'Home', welcome_index_path %></li>
-	<%if current_user.blank? -%>
-	  <li><%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) %></li>
-	<%end%>
-	<li><%= render 'devise/menu/registration_items' %></li>
-	<li><%= render 'devise/menu/login_items' %></li>
-	<!-- <li span class="glyphicon glyphicon-shopping-cart"></li> -->
-	<li><%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Category" %><%= submit_tag "Search", :name => nil %></li>
+	<ul class="nav nav-pills">
+	
+		<li><%= link_to 'Home', welcome_index_path, style: 'color:#FFFFFF' %></li>
+		<%if current_user.blank? -%>
+		  <li><%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) , style: 'color:#FFFFFF'  %></li>
+		<%end%>
+		<li><%= render 'devise/menu/registration_items' %></li>
+		<li><%= render 'devise/menu/login_items' %></li>
+		<!-- <li span class="glyphicon glyphicon-shopping-cart"></li> -->
+		<li style="float:right; margin:5px;" ><%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search" %><%= submit_tag "Search", :name => nil %></li>
 
-	
-</ul>
+	</ul>
+
+</div>
 
 
 

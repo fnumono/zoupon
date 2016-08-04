@@ -2,14 +2,78 @@
 <html lang="en">
 
 <head>
+	<style> 
+
+		#main-container
+		{
+			background-color: #F5F5F5
+		}
+
+		#text 
+		{
+			margin:10px;
+			padding: 10px
+
+		}
+
+		.jumbotron
+		{
+			text-align: center;
+			background-color: #9ACD32;
+		}
+
+		p
+		{
+			margin: 5px;
+		}
+
+		p.original
+		{
+			color: red;
+			text-decoration: line-through;
+			
+		}
+
+		.thumbnail
+		{
+			margin: 5px;
+			padding: 5px;
+			top: 10px;
+		}
+
+		.caption
+		{
+			margin: 5px;
+			padding: 5px;
+		}
+
+		#gallery{
+
+    		border: 1px solid #ccc;
+
+		}
+
+		h1 {color: blue;}
+		
+	</style>
+
 	<title>
 		Zoupon -Filling your life with great deal-
 	</title>	
+
 </head>
 
 	<body>
-		<div id="header" class="container-fluid">
+<!-- 		<div id="header" class="container-fluid">
 			<h1 align="middle"> Zoupon </h1>
+		</div> -->
+
+		<div class="jumbotron">
+			<div id="text">
+			  <h1>Welcome To Zoupon</h1>
+			  <p>Filling your life with great deal</p>
+			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+			</div>
 		</div>
 
 		<div id="main-container" class="container-fluid">
@@ -17,8 +81,6 @@
 
 				<div id="cart">
 					<%= render @cart %>
-					
-
 					<br>
 					<br>
 				</div>
@@ -35,31 +97,25 @@
 			</div>
 			<div id="main-content" class="col-xs-9">
 
-				<p id="notice"><%= notice %></p>
-				<table class="table table-bordered">
-					<tr> 
-						<th> Image </th>
-						<th> Title </th> 
-						<th> Price </th>
-						<th> Sale </th>
-						<th>  </th>
-					</tr>
-
-					<%if @products.blank? %>
+				<%if @products.blank? %>
 						<p> Product cant be found </p>
-					<%end%>
+				<%end%>
 
-					<% @products.each do |product| %>
-					<tr>
-						<td><%= image_tag(product.image_url, width:"32", height:"16", alt: "Edit Entry") %> </td>
-						<td><%= product.title.humanize %> </td>
-						<td><%= number_to_currency product.price %> </td>
-						<td><%= number_to_currency product.sale %> </td>
-						<td><%= button_to 'Add to Cart', line_items_path(product_id: product), method: true %></td>
-					</tr>
-					<% end %>
-
-				</table>
+				<% @products.each do |product| %>
+				<div id = "gallery" class="col-xs-4">
+					<div class="thumbnail">
+						
+						<%= image_tag(product.image_url, width:"1024", height:"128", alt: "") %> 
+					</div>
+					<div class="caption">
+				        <h3><%= product.title.humanize %></h3>
+				        <p class="original">Original price: <%= number_to_currency product.price %> </p>
+				        
+				        <p>Sale price: <%= number_to_currency product.sale %></p> 
+				        <td><%= button_to 'Add to Cart', line_items_path(product_id: product), method: true %></td>
+				     </div>
+				</div>
+				<% end %>
 
 
 
